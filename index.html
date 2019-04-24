@@ -1,0 +1,51 @@
+<script type="text/javascript">
+//nome dos participantes
+var nomes = ["Lázaro de Arruda Bentivoglio", "Joice Kinalski Franco", "Cristiane Ochôa","Alexandre Santos", "Matheus Alles", "Jenifer Brandão", "Nayara Lasch", "Gleice Fantinelli"];
+//função que faz o sorteio
+function sorteio() {
+	var c = document.getElementById('campo');
+	var i = 0;
+	var velocidade = 50;
+	var tempo = 15000;
+	var intervalo = window.setInterval(function() {
+				if (i >= nomes.length)
+					i = 0;
+				c.value = nomes[i++];
+			}, velocidade);
+	window.setTimeout(function() {
+				clearInterval(intervalo);
+				var n = Math.floor(Math.random()*nomes.length);
+				c.value = nomes[n];
+			}, tempo);
+}
+
+</script>
+<style>
+input[type=text]{   
+    border-radius:4px;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+    box-shadow: 1px 1px 2px #333333;    
+    -moz-box-shadow: 1px 1px 2px #333333;
+    -webkit-box-shadow: 1px 1px 2px #333333;
+    background: #cccccc; 
+    border:1px solid #000000;
+    width:450px;
+    font-size: 20pt;
+
+}
+input[type=button]{
+	background:#FF4500;
+        color:#ffffff;
+    	width:450px;
+    	font-size: 20pt;
+}
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<img src="imagem.jpg" width="480px" height="367px">
+<div id="sorteio">
+<h1>Sorteio</h1>
+<input type="text" id="campo" name="campo" readonly><br>
+<input type="button" onclick="sorteio();" value="Sortear" id="btn" name="btn">
+
+</div>
